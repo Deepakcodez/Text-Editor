@@ -1,12 +1,12 @@
 
 import 'D:/code playground/React/Text-Editor/node_modules/bootstrap/dist/css/bootstrap.min.css'
-import TextEditor from './Component/TextEditor'
+import Layout from './Component/Layout'
 
 function App() {
 
   return (
     <>
-      <TextEditor/>
+      <Layout/>
     </>
   )
 }
