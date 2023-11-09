@@ -1,22 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TextEditor() {
   let [text, setText] = useState("");
+  let [char, setChar] = useState(0)
+  let [word, setWord] = useState(0)
+
+  useEffect(() => {
+    
+      let wordlen =  text.split(" ").length-1
+      let lenOfText = text.length-word;
+      setChar(lenOfText)
+       setWord(wordlen)
+    
+  }, [text]);
+
 
   const textHandler = (e) => {
     setText(e.target.value);
-    console.log(">>>>>>>>>>>", text.length);
   };
 
-  const uppercaseHandler=()=>{
+  const uppercaseHandler = () => {
     let newText = text.toUpperCase();
-    setText(newText)
-  }
+    setText(newText);
+  };
 
-  const lowerCaseHandler=()=>{
+  const lowerCaseHandler = () => {
     let newText = text.toLowerCase();
-    setText(newText)
-  }
+    setText(newText);
+  };
   return (
     <>
       <div className="container">
@@ -29,11 +40,24 @@ export default function TextEditor() {
         </div>
         <div className="row">
           <div className="col ">
-            <button className="btn btn-success mt-3  mx-1 " onClick={uppercaseHandler}> to Uppercase</button>
-            <button className="btn btn-success mt-3  " onClick={lowerCaseHandler}> to Lowercase</button>
+            <button
+              className="btn btn-success mt-3  mx-1 "
+              onClick={uppercaseHandler}
+            >
+              {" "}
+              to Uppercase
+            </button>
+            <button
+              className="btn btn-success mt-3  "
+              onClick={lowerCaseHandler}
+            >
+              {" "}
+              to Lowercase
+            </button>
           </div>
-          <div className="col">
-          </div>
+        </div>
+        <div className="row">
+          <div className="col mt-2 ">{word} words and {char} character</div>
         </div>
       </div>
     </>
