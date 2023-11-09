@@ -1,0 +1,8 @@
+.light-mode{
+    background: #ffffff;
+    color: black;
+}
+.dark-mode{
+    background: #232323;
+    color: rgb(255, 255, 255);
+}

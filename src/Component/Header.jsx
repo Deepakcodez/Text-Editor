@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { BsSun,BsMoon } from "react-icons/bs";
 
 export default function Header() {
+    let [theme,setTheme]=useState("light-mode")
+  
+    const onclickHandler=()=>{
+        if(theme === "light-mode"){
+            setTheme("dark-mode")
+            document.body.className = theme;
+        }
+        if(theme === "dark-mode"){
+            setTheme("light-mode")
+            document.body.className = theme;
+        }
+    }
+    
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+
+     
+      <nav className="navbar navbar-expand-lg nav-light bg-light"  >:
+
+      
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to={'/'}>
+          <NavLink className="navbar-brand" to={"/"}>
             Text-Editor
           </NavLink>
           <button
@@ -33,9 +51,15 @@ export default function Header() {
                 </NavLink>
               </li>
             </ul>
+            {
+              theme=="light-mode"?<BsSun className="fs-3 me-3 text-dark" onClick={onclickHandler}/>:
+              <BsMoon className="fs-3 me-3 " onClick={onclickHandler}/>
+
+            }
           </div>
         </div>
       </nav>
+
     </>
   );
 }

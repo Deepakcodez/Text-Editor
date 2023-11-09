@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
-
+import '../index.css'
 export default function TextEditor() {
   let [text, setText] = useState("");
-  let [char, setChar] = useState(0)
-  let [word, setWord] = useState(0)
+  let [char, setChar] = useState(0);
+  let [word, setWord] = useState(0);
 
   useEffect(() => {
-    
-      let wordlen =  text.split(" ").length-1
-      let lenOfText = text.length-word;
-      setChar(lenOfText)
-       setWord(wordlen)
-    
+    let wordlen = text.split(" ").length - 1;
+    let lenOfText = text.length - word;
+    setChar(lenOfText);
+    setWord(wordlen);
   }, [text]);
-
 
   const textHandler = (e) => {
     setText(e.target.value);
@@ -33,8 +30,9 @@ export default function TextEditor() {
       <div className="container">
         <div className="row">
           <textarea
-            className="w-100 mt-4 mx-auto   "
+            className="w-100 mt-4 mx-auto  p-2 bg-dark  "
             value={text}
+            style={{color:'#E0B0FF'}}
             onChange={textHandler}
           />
         </div>
@@ -57,7 +55,9 @@ export default function TextEditor() {
           </div>
         </div>
         <div className="row">
-          <div className="col mt-2 ">{word} words and {char} character</div>
+          <div className="col mt-2 ">
+            {word} words and {char} character
+          </div>
         </div>
       </div>
     </>
