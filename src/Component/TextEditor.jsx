@@ -35,7 +35,9 @@ export default function TextEditor() {
       setChar(0)
   }
 
-  const notify = () => toast("copy to clipboard!", {
+  const notify = () =>{
+  
+  if(text==""){toast.error("nothing to copy!", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: false,
@@ -43,8 +45,21 @@ export default function TextEditor() {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: "light",
-    });
+    theme: "dark",
+    })}
+else{
+  toast.info("copy to clipboard!", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    })
+}}
+ 
 
   const copyHandler=()=>{
     navigator.clipboard.writeText(text)
