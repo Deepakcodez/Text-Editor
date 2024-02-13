@@ -1,5 +1,5 @@
 
-import 'D:/code playground/React/Text-Editor/node_modules/bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './Component/Layout'
 
 function App() {
